@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "slidedeck",
+  "version": "0.0.0",
+  "description": "A slide deck system",
+  "main": "_scripts/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {},
+  "author": "",
+  "devDependencies": {
+    "express": "~4.4.5",
+    "gulp": "~3.8.5",
+    "hammerjs": "~1.1.3",
+    "which": "~1.0.5",
+    "gulp-buffer": "0.0.2",
+    "gulp-tap": "~0.1.1",
+    "gulp-uglify": "~0.3.1",
+    "browserify": "~4.2.0",
+    "gulp-concat": "~2.2.0",
+    "gulp-util": "~2.2.19",
+    "console-shim": "~1.0.3"
+  }
+}

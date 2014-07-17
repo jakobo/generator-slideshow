@@ -1,0 +1,201 @@
+/**
+ * ============================================================================
+ * BRANDING ===================================================================
+ * ============================================================================
+**/
+
+/**
+ * Social Tags
+ * Anything here will be tacked onto the layout for hashtag purposes
+ * For example "#omgwtf" will show up and give everyone a tag for tweeting
+**/
+$social-tags: '' !default;
+
+$small-icon: '' !default;
+$small-icon-size: 30px !default;
+
+/**
+ * ============================================================================
+ * SLIDE TYPES ================================================================
+ * ============================================================================
+**/
+
+/**
+ * Slide Defaults
+ * For most slides, these are the expected colors
+**/
+$slide-bg-one: #ffffff !default;
+$slide-bg-two: #515151 !default;
+$slide-shadow: #797979 !default;
+$backdrop-bg: rgb(67, 135, 253) !default;
+
+$body-color: #797979 !default;
+$headline-color: #515151 !default;
+$subheadline-color: #a9a9a9 !default;
+
+$quote-color: #e6e6e6 !default;
+$link-color: #3c8ef3 !default;
+$citation-color: #a9a9a9 !default;
+
+/**
+ * Title Slide
+ * Done on your slide's color1 background, this sets the additional colors
+**/
+$title-headline-color: #515151 !default;
+$title-subheadline-color: #a9a9a9 !default;
+$title-color: #797979 !default;
+
+/**
+ * Backdrop Slides
+ * This drops the slide's background in favor for the color sitting
+ * behind it. This is often a pair of contrast colors to your main slide BG.
+ * It uses a radial effect to give the slide texture.
+**/
+$backdrop-bg-color: #e6e6e6 !default;
+$backdrop-bg-radial: #b1dfff !default;
+
+/**
+ * Segue Slides
+ * Used to transition from one part of the presentation
+ * to another.
+**/
+$segue-headline-color: #e6e6e6 !default;
+$segue-subheadline-color: #e6e6e6 !default;
+$segue-subsubheadline-color: #e6e6e6 !default;
+
+/**
+ * Thankyou Slide
+ * Used often at the end of the presentation, restates contact info
+ * Can be given a different color scheme than a standard Segue slide
+**/
+$thankyou-bg: #515151 !default;
+$thankyou-color: white !default;
+
+/**
+ * ============================================================================
+ * SLIDE ELEMENTS =============================================================
+ * ============================================================================
+**/
+
+/**
+ * Logobar: The animating-in conference / topic / personal logo
+ * height and width of the logobar logo (max 128px high)
+ * This is used on title and seque slides, and is given an
+ * animation in. If you omit the logobar element, these
+ * styles will not apply.
+**/
+$logobar-logo-width: 89px !default;
+$logobar-logo-height: 128px !default;
+$logobar-bg-color: #333333 !default;
+
+/**
+ * Iframes
+ * For remote content on the fly...
+**/
+$iframe-border-color: #e6e6e6 !default;
+
+/**
+ * Buttons
+ * What better way to launch a demo?
+**/
+$button-bg-top: #f9f9f9 !default;
+$button-bg-bottom: #e3e3e3 !default;
+$button-border: #a9a9a9 !default;
+$button-active-bg-top: #e3e3e3 !default;
+$button-active-bg-bottom: #f9f9f9 !default;
+$button-active-border: #515151 !default;
+$button-text-shadow: #fff !default;
+$button-color: #515151 !default;
+
+/**
+ * Tabular Data
+ * You need to adjust these for however you are managing tabular data
+ **/
+$table-border: #797979 !default;
+$table-right-border: #797979 !default;
+
+$table-head-color: #515151 !default;
+$table-head-bg-top: rgb(67, 135, 253) !default;
+$table-head-bg-bottom: #3c8ef3 !default;
+$table-header-color: white !default;
+
+$table-highlight-bg-top: rgb(255, 209, 77) !default;
+$table-highlight-bg-bottom: #f9cc46 !default;
+$table-highlight-color: white !default;
+
+$table-odd-row-bg: #e6e6e6 !default;
+
+/**
+ * Code
+ * Code is rendered using Prism. These are the styles for that
+**/
+$prism-color: #515151 !default;
+$prism-shadow: #ffffff !default;
+$prism-bg: #e6e6e6 !default;
+$prism-inline-bg: #e6e6e6 !default;
+$prism-comment: rgb(127, 127, 127) !default;
+$prism-punctuation: rgb(127, 127, 127) !default;
+$prism-property: rgb(127, 0, 127) !default;
+$prism-string: rgb(0, 138, 53) !default;
+$prism-operator: rgb(127, 0, 0) !default;
+$prism-keyword: rgb(0, 102, 204) !default;
+$prism-regex: rgb(127, 0, 127) !default;
+$prism-highlight-bg-mid: rgba(249, 204, 70, .4) !default;
+$prism-highlight-bg-low: rgba(249, 204, 70, .1) !default;
+$prism-highlight-bg-high: rgba(249, 204, 70, 0) !default;
+$prism-highlight-color: white;
+$prism-highlight-shadow: white;
+$prism-linenumber-border: #e3e3e3;
+$prism-linenumber: #515151;
+
+/**
+ * ============================================================================
+ * GLOBAL CONTROLS ============================================================
+ * ============================================================================
+**/
+
+/**
+ * Highlights
+ * Controls the next slide / expose highlighting
+ */
+$highlight-bg: #f9cc46 !default;
+$highlight-color: white !default;
+
+/**
+ * Print color
+**/
+$slide-print-color: #555 !default;
+
+/**
+ * Disabled
+ * All disabled elements will be colored this way
+ * in addition to their HTML disabled properties
+**/
+$disabled-color: #a9a9a9 !default;
+
+/**
+ * Speaker Note Settings
+ * The slide settings for fonts/colors inherit from your master <slide> object
+**/
+$speaker-bg: #fff !default;
+$speaker-shadow: #797979 !default;
+
+/**
+ * ============================================================================
+ * LAYOUT =====================================================================
+ * ============================================================================
+**/
+
+/**
+ * Slide Settings
+ * Width, height, etc all controlled here. You can also change your tap
+ * target sizes as needed
+**/
+$slide-width: 900px !default;
+$slide-height: 700px !default;
+$slide-width-widescreen: 1100px !default;
+$slide-top-bottom-padding: 40px !default;
+$slide-left-right-padding: 60px !default;
+$slide-border-radius: 5px !default;
+$slide-tap-area-width: 100px !default;
+$article-content-top-padding: 45px !default;

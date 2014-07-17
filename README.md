@@ -2,6 +2,8 @@
 
 > [Yeoman](http://yeoman.io) generator
 
+## BETA
+This is a beta generator, and while it is functional, there is still work to be done. Check the [issues page](https://github.com/Jakobo/generator-slideshow/issues) for tasks left to do.
 
 ## Getting Started
 

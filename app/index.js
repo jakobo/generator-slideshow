@@ -6,6 +6,8 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var which = require('which');
+var semver = require('semver');
+var exec = require('child_process').exec;
 
 var questions = require('./questions');
 var base = require('./slideshow-base');
@@ -14,7 +16,11 @@ function doterize(str) {
   return str.replace(/_/g, '.');
 }
 
-var gulpOk = true;
+var cliCheck = {
+  gulp: true,
+  compass: true,
+  ruby: true
+};
 
 var SlideshowGenerator = module.exports = base.extend({
   init: function() {
@@ -25,45 +31,86 @@ var SlideshowGenerator = module.exports = base.extend({
 
     this.on('end', function() {
       this.installDependencies({
+        bower: false,
         skipMessage: this.options['skip-message'],
         skipInstall: this.options['skip-install'],
         callback: function() {
-          var y = chalk.bold.yellow;
-          var r = chalk.bold.red;
-          var w = function(x) { return x; };
-          var output;
           console.log(yosay('That\'s everything! Now, let me tell you how to use this.'));
-          output = [
-            y('To build your slideshow (for publishing to github, etc):'),
-            w('  "gulp build"'),
-            y('To serve your slideshow locally:'),
-            w('  "gulp serve"'),
-          ];
-          if (!gulpOk) {
-            output = [].concat([
-              r('Oh no! You do not seem to have a working gulp. Gulp is a great build utility'),
-              r('and is needed in order to build your presentation if you want to make any'),
-              r('style or JS modifications. You can install gulp globally by running:'),
-              w('  npm install -g gulp')
-            ], output);
-          }
-          console.log(output.join('\n'));
-        }
+
+          console.log(this.generateNextSteps({
+            gulpOk: cliCheck.gulp,
+            rubyOk: cliCheck.ruby,
+            compassOk: cliCheck.compass
+          }));
+        }.bind(this)
       });
     }.bind(this));
   },
   welcome: function() {
-    console.log(this.yeoman);
+    console.log(yosay('Welcome to Yeoman and yo-slideshow! Let\'s build a presentation!'));
   },
-  askToShim: function() {
-    var hasGulp = false;
+  checkGulp: function() {
     var done = this.async();
-    try {
-      hasGulp = which.sync('gulp');
-    }
-    catch(e) {}
+    which('gulp', function(err, path) {
+      if (!path) {
+        console.log(chalk.red('Hmm, I can\'t seem to find gulp. We will talk about that in a moment...'));
+        cliCheck.gulp = false;
+      }
+      else {
+        console.log(chalk.green('Oh yeah! You have gulp!'));
+      }
+      done();
+    });
+  },
+  checkRuby: function() {
+    var done = this.async();
+    which('ruby', function(err, path) {
+      if (!path) {
+        console.log(chalk.red('Oh, you are missing tuby on your system. I\'ll include some instructions'));
+        console.log(chalk.red('at the end for how to install ruby...'));
+        cliCheck.ruby = false;
+        return done();
+      }
+      exec("ruby -e 'print \"#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}\"'", function(err, stdout, stderr) {
+        if (err || stderr.toString()) {
+          console.log(chalk.red('I couldn\'t verify the ruby version. You need ruby 2.0.0 or higher.'));
+          console.log(chalk.red('I\'ll include some instructions for installing ruby when we\'re done...'));
+          cliCheck.ruby = false;
+          return done();
+        }
 
-    if (hasGulp) {
+        var version = stdout.toString();
+        if (!semver.satisfies(version, '^2.0.0')) {
+          console.log(chalk.red('Your ruby is a bit old, we will need 2.0.0 or higher.'));
+          console.log(chalk.red('I\'ll include some instructions for installing ruby when we\'re done...'));
+          cliCheck.ruby = false;
+          cliCheck.oldRuby = true;
+        }
+        else {
+          console.log(chalk.green('Awesome! You have ruby ^2.0.0 for compass!'));
+        }
+        return done();
+      });
+    });
+  },
+  checkCompass: function() {
+    var done = this.async();
+    which('compass', function(err, path) {
+      if (!path) {
+        console.log(chalk.red('Compass seems to be missing. I\'ll include instructions for installing'));
+        console.log(chalk.red('that ruby gem when we\'re done...'));
+        cliCheck.compass = false;
+      }
+      else {
+        console.log(chalk.green('Alright! You have the compass gem!'));
+      }
+      return done();
+    });
+  },
+  askShimGulp: function() {
+    var done = this.async();
+
+    if (cliCheck.gulp) {
       return done();
     }
 
@@ -76,16 +123,20 @@ var SlideshowGenerator = module.exports = base.extend({
       if (props.shimGulp) {
         this.npmInstall(['gulp'], {'g': true}, function(err) {
           if (err) {
-            gulpOk = false;
+            console.log(yosay('I couldn\'t install gulp for you. But that\'s ok, let\'s continue!'));
+            clicheck.gulp = false;
           }
-          console.log(yosay('Phew! Okay, with that out of the way, let\'s talk about your presentation'));
-          done();
+          else {
+            console.log(yosay('Phew! Okay, with that out of the way, let\'s talk about your presentation'));
+            cliCheck.gulp = true;
+          }
+          return done();
         });
       }
       else {
-        gulpOk = false;
+        cliCheck.gulp = false;
         console.log(yosay('Okay, well we will include instructions for installing gulp later'));
-        done();
+        return done();
       }
     }.bind(this));
   },

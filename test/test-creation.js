@@ -4,9 +4,9 @@ var path = require('path');
 var helpers = require('yeoman-generator').test;
 
 describe('slideshow generator', function () {
-  // 15s test window
-  this.timeout(15000);
-  
+  // 30s test window
+  this.timeout(30000);
+
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
       if (err) {

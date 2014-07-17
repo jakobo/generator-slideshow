@@ -1,4 +1,4 @@
-# generator-slideshow [![Build Status](https://secure.travis-ci.org/jakobo/generator-slideshow.png?branch=master)](https://travis-ci.org/jakobo/generator-slideshow)
+# generator-slideshow [![Build Status](https://travis-ci.org/Jakobo/generator-slideshow.svg?branch=master)](https://travis-ci.org/Jakobo/generator-slideshow)
 
 > [Yeoman](http://yeoman.io) generator
 

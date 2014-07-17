@@ -39,9 +39,9 @@ $ yo slideshow
 
 Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
-
+If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com), [Gulp](http://gulpjs.com), and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
 ## License
-
-MIT
+* Yeoman is licensed under the [BSD License](http://opensource.org/licenses/bsd-license.php)
+* This generator is licensed under the [Apache License, 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
+* The generated slide template code is licensed under the [Apache License, 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)  

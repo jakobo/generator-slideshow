@@ -1,13 +1,13 @@
 {
   "name": "generator-slideshow",
-  "version": "0.0.2",
-  "description": "Yeoman generator",
+  "version": "0.0.3",
+  "description": "Yeoman Slideshow Generator",
   "license": "Apache License, 2.0",
   "main": "app/index.js",
   "repository": "jakobo/generator-slideshow",
   "author": {
     "name": "Jakob Heuser",
-    "email": "",
+    "email": "jakob+npm@felocity.com",
     "url": "https://github.com/Jakobo"
   },
   "engines": {
@@ -23,16 +23,15 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "~0.16.0",
-    "chalk": "~0.4.0",
-    "yosay": "^0.1.0",
-    "which": "~1.0.5"
+    "chalk": "^0.4.0",
+    "semver": "^3.0.1",
+    "underscore": "^1.6.0",
+    "which": "~1.0.5",
+    "yeoman-generator": "^0.16.0",
+    "yosay": "^0.1.0"
   },
   "devDependencies": {
-    "mocha": "*",
-    "semver": "^2.3.1",
-    "underscore": "^1.6.0",
-    "which": "^1.0.5"
+    "mocha": "*"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"

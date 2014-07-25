@@ -61,6 +61,11 @@ module.exports.configQuestions = [{
   name: 'config_touch',
   message: 'Do you want touch support (experimental)?',
   default: true
+},{
+  type: 'confirm',
+  name: 'config_clicks',
+  message: 'Do you want to allow clicking the edges of the slide to advance?',
+  default: true
 }];
 
 module.exports.scaffoldQuestions = [{
